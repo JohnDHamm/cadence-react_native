@@ -1,12 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 
 export default class App extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
 				<View style={styles.top}>
-					<Text>height: {Dimensions.get('window').height}</Text>
+					<Image
+						style={styles.iconBtn}
+	          source={require('./img/ic_group.png')}
+	        />
+					<Image
+						style={styles.iconBtn}
+	          source={require('./img/ic_list.png')}
+	        />
 				</View>
 				<View style={styles.tapContainer}>
 					<View style={styles.tapBtn}>
@@ -15,7 +22,12 @@ export default class App extends React.Component {
 						<Text style={styles.athleteName}> </Text>
 					</View>
 				</View>
-				<View style={styles.bottom} />
+				<View style={styles.bottom}>
+					<Image
+						style={styles.resetBtn}
+	          source={require('./img/ic_highlight_off_444.png')}
+	        />
+				</View>
 			</View>
 		);
 	}
@@ -23,24 +35,33 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+		// flex: 1,
 		backgroundColor: '#222',
 	},
 	top: {
-		flex: 1,
-		justifyContent: 'center',
+		width: Dimensions.get('window').width,
+		height: (Dimensions.get('window').height - Dimensions.get('window').width) / 2,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 		alignItems: 'center',
+		paddingLeft: 15,
+		paddingRight: 15,
 		borderColor: '#444',
 		borderWidth: 1,
 		borderStyle: 'solid'
 	},
+	iconBtn: {
+		width: 50,
+		height: 50
+	},
 	tapContainer: {
-		flex: 5,
+		width: Dimensions.get('window').width,
+		height: Dimensions.get('window').width,
+		// flex: 5,
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	tapBtn: {
-		// flex: 1,
 		width: Dimensions.get('window').width * 0.95,
 		height: Dimensions.get('window').width * 0.95,
 		backgroundColor: '#000',
@@ -62,11 +83,17 @@ const styles = StyleSheet.create({
 		paddingBottom: 17
 	},
 	bottom: {
-		flex: 1,
+		// flex: 1,
+		width: Dimensions.get('window').width,
+		height: (Dimensions.get('window').height - Dimensions.get('window').width) / 2,
 		justifyContent: 'center',
 		alignItems: 'center',
 		borderColor: '#444',
 		borderWidth: 1,
 		borderStyle: 'solid'
+	},
+	iconBtn: {
+		width: 40,
+		height: 40
 	}
 });
