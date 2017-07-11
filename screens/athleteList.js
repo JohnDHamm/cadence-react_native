@@ -32,7 +32,8 @@ export default class AthleteList extends React.Component {
 				8: {
 					name: 'WELLINGTON',
 				}
-			}
+			},
+			numAthletes: 8
 		};
 	}
 
@@ -51,8 +52,13 @@ export default class AthleteList extends React.Component {
 		})
 	}
 
-	render() {
+	addAthlete() {
+		//open modal to enter name?
+		//check name duplicate
+		//save new athlete to state
+	}
 
+	render() {
 		return (
 			<View style={styles.container}>
 				<View style={styles.title}>
@@ -64,7 +70,9 @@ export default class AthleteList extends React.Component {
 				</View>
 
 				<View style={styles.addAthlete}>
-
+					<TouchableOpacity onPress={() => this.addAthlete()}>
+						<Text style={styles.titleText}>add new athlete</Text>
+					</TouchableOpacity>
 				</View>
 			</View>
 		);
@@ -74,7 +82,7 @@ export default class AthleteList extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#600',
+		backgroundColor: '#2F0000',
 		// backgroundColor: 'rgba(55, 0, 0, 0.85)',
 		paddingTop: Constants.statusBarHeight
 	},
@@ -90,6 +98,10 @@ const styles = StyleSheet.create({
 		paddingLeft: 25,
 		paddingTop: 15,
 		// backgroundColor: '#600'
+	},
+	addAthlete: {
+		paddingLeft: 25,
+		paddingTop: 10
 	},
 	athleteText: {
 		color: '#ddd',
