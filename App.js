@@ -28,7 +28,7 @@ export default class App extends React.Component {
 		if (this.state.prevTap === 0) {
 			this.state.prevTap = thisTap;
 			this.state.latestTap = thisTap;
-			this.state.readout = "started..."
+			this.setState({readout: "started..."});
 		} else {
 			this.state.prevTap = this.state.latestTap;
 			this.state.latestTap = thisTap;
@@ -37,14 +37,8 @@ export default class App extends React.Component {
 			const sum = this.state.intervals.reduce((a, b) => a + b);
 			let avgSecond = (sum / this.state.intervals.length).toFixed(2);
 			let avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
-			this.state.readout = `${avgSecond}s / ${avgRPM}rpm`;
-			// $scope.athletes[$scope.currentAthlete.id].resultSec = avgSecond;
-			// $scope.athletes[$scope.currentAthlete.id].resultRPM = avgRPM;
+			this.setState({readout: `${avgSecond}s / ${avgRPM}rpm`});
 		}
-
-		this.setState({
-			pressedBtn: 'tapped!'
-		});
 	}
 
 	reset() {
