@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import TapButton from './components/tapButton';
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -41,15 +42,15 @@ export default class App extends React.Component {
 						/>
 					</TouchableOpacity>
 				</View>
+
 				<View style={styles.tapContainer}>
 					<TouchableOpacity onPress={this.tap.bind(this)}>
-						<View style={styles.tapBtn}>
-							<Text style={styles.athleteName}>MAKENNA</Text>
-							<Text style={styles.readout}>0.75s / 105rpm</Text>
-							<Text style={styles.athleteName}> </Text>
-						</View>
+						<TapButton
+							athleteName='MAKENNA'
+							readout='0.85s / 102rpm' />
 					</TouchableOpacity>
 				</View>
+
 				<View style={styles.bottom}>
 					<TouchableOpacity onPress={this.reset.bind(this)}>
 						<Image
@@ -86,27 +87,6 @@ const styles = StyleSheet.create({
 		height: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center'
-	},
-	tapBtn: {
-		width: Dimensions.get('window').width * 0.95,
-		height: Dimensions.get('window').width * 0.95,
-		backgroundColor: '#000',
-		borderStyle: 'solid',
-		borderColor: '#e2bb2d',
-		borderWidth: 2,
-		borderRadius: Dimensions.get('window').width * 0.475,
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	athleteName: {
-		color: '#e2bb2d',
-		fontSize: 22
-	},
-	readout: {
-		color: '#fff',
-		fontSize: 37,
-		paddingTop: 17,
-		paddingBottom: 17
 	},
 	bottom: {
 		width: Dimensions.get('window').width,
