@@ -5,6 +5,7 @@ import { Constants } from 'expo';
 
 import Timer from './screens/timer';
 import AthleteList from './screens/athleteList';
+import ResultsList from './screens/resultsList';
 
 // class AthletesList extends React.Component {
 // 	render() {
@@ -16,15 +17,15 @@ import AthleteList from './screens/athleteList';
 // 	}
 // }
 
-class ResultsList extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<Text style={styles.testText}>results list</Text>
-			</View>
-		);
-	}
-}
+// class ResultsList extends React.Component {
+// 	render() {
+// 		return (
+// 			<View style={styles.container}>
+// 				<Text style={styles.testText}>results list</Text>
+// 			</View>
+// 		);
+// 	}
+// }
 
 const StackNavigatorConfig = {
 	headerMode: 'none'

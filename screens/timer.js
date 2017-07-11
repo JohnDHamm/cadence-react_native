@@ -8,7 +8,6 @@ export default class Timer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pressedBtn: 'none',
 			readout: 'tap to start',
 			prevTap: 0,
 			latestTap: 0,
@@ -37,7 +36,6 @@ export default class Timer extends React.Component {
 
 	reset() {
 		this.setState({
-			pressedBtn: 'reset',
 			readout: 'tap to start',
 			prevTap: 0,
 			latestTap: 0,
@@ -79,7 +77,6 @@ export default class Timer extends React.Component {
 							source={require('../img/ic_highlight_off.png')}
 						/>
 					</TouchableOpacity>
-					<Text style={styles.testText}>{this.state.pressedBtn}</Text>
 				</View>
 			</View>
 		);
