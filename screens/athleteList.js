@@ -100,8 +100,10 @@ const styles = StyleSheet.create({
 		// backgroundColor: '#600'
 	},
 	addAthlete: {
-		paddingLeft: 25,
-		paddingTop: 10
+		// paddingLeft: 25,
+		paddingTop: 10,
+		flexDirection: 'row',
+		justifyContent: 'center'
 	},
 	athleteText: {
 		color: '#ddd',

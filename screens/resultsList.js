@@ -127,6 +127,8 @@ const styles = StyleSheet.create({
 		fontSize: 23
 	},
 	clearResults: {
-		paddingTop: 10
+		paddingTop: 10,
+		flexDirection: 'row',
+		justifyContent: 'center'
 	}
 });
