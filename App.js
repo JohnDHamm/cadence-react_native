@@ -10,9 +10,7 @@ export default class App extends React.Component {
 			readout: 'tap to start',
 			prevTap: 0,
 			latestTap: 0,
-			intervals: [],
-			avgSecond: 0.00,
-			avgRPM: 0
+			intervals: []
 		};
 	}
 
@@ -37,9 +35,9 @@ export default class App extends React.Component {
 			let thisInterval = ((this.state.latestTap - this.state.prevTap)/1000);
 			this.state.intervals.push(thisInterval);
 			const sum = this.state.intervals.reduce((a, b) => a + b);
-			this.state.avgSecond = (sum / this.state.intervals.length).toFixed(2);
-			this.state.avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
-			this.state.readout = `${this.state.avgSecond}s / ${this.state.avgRPM}rpm`;
+			let avgSecond = (sum / this.state.intervals.length).toFixed(2);
+			let avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
+			this.state.readout = `${avgSecond}s / ${avgRPM}rpm`;
 			// $scope.athletes[$scope.currentAthlete.id].resultSec = avgSecond;
 			// $scope.athletes[$scope.currentAthlete.id].resultRPM = avgRPM;
 		}
@@ -55,9 +53,7 @@ export default class App extends React.Component {
 			readout: 'tap to start',
 			prevTap: 0,
 			latestTap: 0,
-			intervals: [],
-			avgSecond: 0.00,
-			avgRPM: 0
+			intervals: []
 		});
 	}
 
