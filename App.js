@@ -5,7 +5,15 @@ import TapButton from './components/tapButton';
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { pressedBtn: 'none' };
+		this.state = {
+			pressedBtn: 'none',
+			readout: 'tap to start',
+			prevTap: 0,
+			latestTap: 0,
+			intervals: [],
+			avgSecond: 0.00,
+			avgRPM: 0
+		};
 	}
 
 	chooseAthlete() {
@@ -17,11 +25,40 @@ export default class App extends React.Component {
 	}
 
 	tap() {
-		this.setState({pressedBtn: 'tapped!'});
+		let thisTap = Date.now();
+
+		if (this.state.prevTap === 0) {
+			this.state.prevTap = thisTap;
+			this.state.latestTap = thisTap;
+			this.state.readout = "started..."
+		} else {
+			this.state.prevTap = this.state.latestTap;
+			this.state.latestTap = thisTap;
+			let thisInterval = ((this.state.latestTap - this.state.prevTap)/1000);
+			this.state.intervals.push(thisInterval);
+			const sum = this.state.intervals.reduce((a, b) => a + b);
+			this.state.avgSecond = (sum / this.state.intervals.length).toFixed(2);
+			this.state.avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
+			this.state.readout = `${this.state.avgSecond}s / ${this.state.avgRPM}rpm`;
+			// $scope.athletes[$scope.currentAthlete.id].resultSec = avgSecond;
+			// $scope.athletes[$scope.currentAthlete.id].resultRPM = avgRPM;
+		}
+
+		this.setState({
+			pressedBtn: 'tapped!'
+		});
 	}
 
 	reset() {
-		this.setState({pressedBtn: 'reset'});
+		this.setState({
+			pressedBtn: 'reset',
+			readout: 'tap to start',
+			prevTap: 0,
+			latestTap: 0,
+			intervals: [],
+			avgSecond: 0.00,
+			avgRPM: 0
+		});
 	}
 
 	render() {
@@ -47,7 +84,7 @@ export default class App extends React.Component {
 					<TouchableOpacity onPress={this.tap.bind(this)}>
 						<TapButton
 							athleteName='MAKENNA'
-							readout='0.85s / 102rpm' />
+							readout={this.state.readout} />
 					</TouchableOpacity>
 				</View>
 
