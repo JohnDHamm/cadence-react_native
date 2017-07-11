@@ -4,16 +4,17 @@ import { StackNavigator } from 'react-navigation';
 import { Constants } from 'expo';
 
 import Timer from './screens/timer';
+import AthleteList from './screens/athleteList';
 
-class AthletesList extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<Text style={styles.testText}>list of athletes</Text>
-			</View>
-		);
-	}
-}
+// class AthletesList extends React.Component {
+// 	render() {
+// 		return (
+// 			<View style={styles.container}>
+// 				<Text style={styles.testText}>list of athletes</Text>
+// 			</View>
+// 		);
+// 	}
+// }
 
 class ResultsList extends React.Component {
 	render() {
@@ -31,7 +32,7 @@ const StackNavigatorConfig = {
 
 const MainScreenNavigator = StackNavigator({
   Home: { screen: Timer },
-  Athletes: { screen: AthletesList },
+  Athletes: { screen: AthleteList },
   Results: { screen: ResultsList },
 }, StackNavigatorConfig );
 
