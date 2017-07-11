@@ -1,10 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import TapButton from './components/tapButton';
 
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { pressedBtn: 'none' };
+		this.state = {
+			pressedBtn: 'none',
+			readout: 'tap to start',
+			prevTap: 0,
+			latestTap: 0,
+			intervals: []
+		};
 	}
 
 	chooseAthlete() {
@@ -16,11 +23,38 @@ export default class App extends React.Component {
 	}
 
 	tap() {
-		this.setState({pressedBtn: 'tapped!'});
+		let thisTap = Date.now();
+
+		if (this.state.prevTap === 0) {
+			this.state.prevTap = thisTap;
+			this.state.latestTap = thisTap;
+			this.state.readout = "started..."
+		} else {
+			this.state.prevTap = this.state.latestTap;
+			this.state.latestTap = thisTap;
+			let thisInterval = ((this.state.latestTap - this.state.prevTap)/1000);
+			this.state.intervals.push(thisInterval);
+			const sum = this.state.intervals.reduce((a, b) => a + b);
+			let avgSecond = (sum / this.state.intervals.length).toFixed(2);
+			let avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
+			this.state.readout = `${avgSecond}s / ${avgRPM}rpm`;
+			// $scope.athletes[$scope.currentAthlete.id].resultSec = avgSecond;
+			// $scope.athletes[$scope.currentAthlete.id].resultRPM = avgRPM;
+		}
+
+		this.setState({
+			pressedBtn: 'tapped!'
+		});
 	}
 
 	reset() {
-		this.setState({pressedBtn: 'reset'});
+		this.setState({
+			pressedBtn: 'reset',
+			readout: 'tap to start',
+			prevTap: 0,
+			latestTap: 0,
+			intervals: []
+		});
 	}
 
 	render() {
@@ -41,15 +75,15 @@ export default class App extends React.Component {
 						/>
 					</TouchableOpacity>
 				</View>
+
 				<View style={styles.tapContainer}>
 					<TouchableOpacity onPress={this.tap.bind(this)}>
-						<View style={styles.tapBtn}>
-							<Text style={styles.athleteName}>MAKENNA</Text>
-							<Text style={styles.readout}>0.75s / 105rpm</Text>
-							<Text style={styles.athleteName}> </Text>
-						</View>
+						<TapButton
+							athleteName='MAKENNA'
+							readout={this.state.readout} />
 					</TouchableOpacity>
 				</View>
+
 				<View style={styles.bottom}>
 					<TouchableOpacity onPress={this.reset.bind(this)}>
 						<Image
@@ -86,27 +120,6 @@ const styles = StyleSheet.create({
 		height: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center'
-	},
-	tapBtn: {
-		width: Dimensions.get('window').width * 0.95,
-		height: Dimensions.get('window').width * 0.95,
-		backgroundColor: '#000',
-		borderStyle: 'solid',
-		borderColor: '#e2bb2d',
-		borderWidth: 2,
-		borderRadius: Dimensions.get('window').width * 0.475,
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	athleteName: {
-		color: '#e2bb2d',
-		fontSize: 22
-	},
-	readout: {
-		color: '#fff',
-		fontSize: 37,
-		paddingTop: 17,
-		paddingBottom: 17
 	},
 	bottom: {
 		width: Dimensions.get('window').width,
