@@ -22,7 +22,7 @@ export default class ResultsList extends React.Component {
 				},
 				4: {
 					name: 'MAYA',
-					cadence: 0.83
+					cadence: 0.00
 				},
 				5: {
 					name: 'MILES B',
@@ -49,16 +49,18 @@ export default class ResultsList extends React.Component {
 	renderResultsList() {
 		return _.map(this.state.athletes, athlete => {
 			const cadenceRPM = Math.floor(60 / athlete.cadence);
-			return (
-				<View key={athlete.name} style={styles.athleteBlock}>
-					<View>
-						<Text style={styles.athleteName}>{athlete.name}</Text>
+			if (athlete.cadence !== 0) {
+				return (
+					<View key={athlete.name} style={styles.athleteBlock}>
+						<View>
+							<Text style={styles.athleteName}>{athlete.name}</Text>
+						</View>
+						<View>
+							<Text><Text style={styles.resultNumText}>{athlete.cadence}</Text><Text style={styles.resultMetricText}>s/</Text><Text style={styles.resultNumText}>{cadenceRPM}</Text><Text style={styles.resultMetricText}>rpm</Text></Text>
+						</View>
 					</View>
-					<View>
-						<Text><Text style={styles.resultNumText}>{athlete.cadence}</Text><Text style={styles.resultMetricText}>s/</Text><Text style={styles.resultNumText}>{cadenceRPM}</Text><Text style={styles.resultMetricText}>rpm</Text></Text>
-					</View>
-				</View>
-			);
+				);
+			}
 		})
 	}
 
