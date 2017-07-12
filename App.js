@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Constants } from 'expo';
 
-import Timer from './screens/timer';
-import AthleteList from './screens/athleteList';
-import ResultsList from './screens/resultsList';
+import Timer from './src/screens/timer';
+import AthleteList from './src/screens/athleteList';
+import ResultsList from './src/screens/resultsList';
 
 
 const StackNavigatorConfig = {
