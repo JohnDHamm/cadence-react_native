@@ -1,73 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Constants } from 'expo';
+import { connect } from 'react-redux';
+
 import _ from 'lodash';
 
-export default class ResultsList extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			athletes: {
-				1: {
-					name: 'CLARA',
-					cadence: 0.75
-				},
-				2: {
-					name: 'LUCY',
-					cadence: 0.59
-				},
-				3: {
-					name: 'MAKENNA',
-					cadence: 0.76
-				},
-				4: {
-					name: 'MAYA',
-					cadence: 0.70
-				},
-				5: {
-					name: 'MILES B',
-					cadence: 0.81
-				},
-				6: {
-					name: 'RUTH',
-					cadence: 0.80
-				},
-				7: {
-					name: 'TRINITY',
-					cadence: 0.71
-				},
-				8: {
-					name: 'WELLINGTON',
-					cadence: 0.59
-				},
-				9: {
-					name: 'WELLINGTO',
-					cadence: 0.00
-				},
-				10: {
-					name: 'WELLINGT',
-					cadence: 0.00
-				},
-				11: {
-					name: 'WELLING',
-					cadence: 0.00
-				},
-				12: {
-					name: 'WELLIN',
-					cadence: 0.00
-				},
-				13: {
-					name: 'WELLI',
-					cadence: 0.0
-				},
-			},
-			numAthletes: 8
-		};
-	}
-
+class ResultsList extends React.Component {
 
 	renderResultsList() {
-		return _.map(this.state.athletes, athlete => {
+		return _.map(this.props.athletes, athlete => {
 			const cadenceRPM = Math.floor(60 / athlete.cadence);
 			if (athlete.cadence !== 0) {
 				return (
@@ -86,7 +27,8 @@ export default class ResultsList extends React.Component {
 
 	clearResults() {
 		//open modal to confirm?
-		//clear all cadence values in state
+		//clear all cadence values in redux store
+		//save to AsyncStorage
 	}
 
 	render() {
@@ -174,3 +116,9 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	}
 });
+
+function mapStateToProps({ athletes }) {
+	return { athletes };
+}
+
+export default connect(mapStateToProps)(ResultsList);
