@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { Constants } from 'expo';
 import { connect } from 'react-redux';
+import { getAthletes, updateCadence } from '../actions';
+
 
 import TapButton from '../components/tapButton';
 
@@ -18,6 +20,7 @@ class Timer extends React.Component {
 
 	componentWillMount() {
 		if (!this.props.currentAthlete) {
+			this.props.getAthletes();
 			this.state.readout = 'no athlete selected';
 		}
 	}
@@ -42,11 +45,21 @@ class Timer extends React.Component {
 			let avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
 			this.setState({readout: `${avgSecond}s / ${avgRPM}rpm`});
 			//save avgSecond to athlete.cadence
+			const newCadenceObj = {
+				name: this.props.currentAthlete,
+				cadence: avgSecond
+			}
+			this.props.updateCadence(newCadenceObj);
 			//save to AsyncStorage
 		}
 	}
 
 	reset() {
+		const newCadenceObj = {
+			name: this.props.currentAthlete,
+			cadence: 0.00
+		}
+		this.props.updateCadence(newCadenceObj);
 		this.setState({
 			readout: 'tap to start',
 			prevTap: 0,
@@ -139,4 +152,4 @@ function mapStateToProps({ currentAthlete }) {
 	return { currentAthlete };
 }
 
-export default connect(mapStateToProps)(Timer);
+export default connect(mapStateToProps, { getAthletes, updateCadence })(Timer);

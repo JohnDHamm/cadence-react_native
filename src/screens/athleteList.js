@@ -4,13 +4,16 @@ import { Constants } from 'expo';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { setCurrentAthlete } from '../actions';
+import { getAthletes, setCurrentAthlete } from '../actions';
 
 
 class AthleteList extends React.Component {
+	componentWillMount() {
+		// this.props.getAthletes();
+	}
 
 	selectAthlete(athlete) {
-		console.log("seletced athlete", athlete);
+		// console.log("seletced athlete", athlete);
 		//set state of current athlete + clear cadence value
 		this.props.setCurrentAthlete(athlete);
 
@@ -92,4 +95,4 @@ function mapStateToProps({ athletes }) {
 	return { athletes };
 }
 
-export default connect(mapStateToProps, { setCurrentAthlete })(AthleteList);
+export default connect(mapStateToProps, { getAthletes, setCurrentAthlete })(AthleteList);
