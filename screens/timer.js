@@ -86,7 +86,6 @@ export default class Timer extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#222',
-		// paddingTop: Constants.statusBarHeight
 	},
 	top: {
 		width: Dimensions.get('window').width,

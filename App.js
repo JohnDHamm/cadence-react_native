@@ -7,25 +7,6 @@ import Timer from './screens/timer';
 import AthleteList from './screens/athleteList';
 import ResultsList from './screens/resultsList';
 
-// class AthletesList extends React.Component {
-// 	render() {
-// 		return (
-// 			<View style={styles.container}>
-// 				<Text style={styles.testText}>list of athletes</Text>
-// 			</View>
-// 		);
-// 	}
-// }
-
-// class ResultsList extends React.Component {
-// 	render() {
-// 		return (
-// 			<View style={styles.container}>
-// 				<Text style={styles.testText}>results list</Text>
-// 			</View>
-// 		);
-// 	}
-// }
 
 const StackNavigatorConfig = {
 	headerMode: 'none'
@@ -53,9 +34,5 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: '#222',
 		paddingTop: Constants.statusBarHeight
-	},
-	testText: {
-		color: '#e2bb2d',
-		fontSize: 30
 	}
 });

@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#2F0000',
-		// backgroundColor: 'rgba(55, 0, 0, 0.85)',
 		paddingTop: Constants.statusBarHeight
 	},
 	title: {
@@ -97,10 +96,8 @@ const styles = StyleSheet.create({
 	athleteList: {
 		paddingLeft: 25,
 		paddingTop: 15,
-		// backgroundColor: '#600'
 	},
 	addAthlete: {
-		// paddingLeft: 25,
 		paddingTop: 10,
 		flexDirection: 'row',
 		justifyContent: 'center'
