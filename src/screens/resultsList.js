@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView
 import { Constants } from 'expo';
 import { connect } from 'react-redux';
 
+import { updateCadence } from '../actions';
+
 import _ from 'lodash';
 
 class ResultsList extends React.Component {
@@ -28,7 +30,13 @@ class ResultsList extends React.Component {
 	clear() {
 		//open modal to confirm?
 		//clear all cadence values in redux store
-
+		_.map(this.props.athletes, athlete => {
+			const newClearedObj = {
+				name: athlete.name,
+				cadence: 0.00
+			}
+			this.props.updateCadence(newClearedObj)
+		})
 		//save to AsyncStorage
 	}
 
@@ -122,4 +130,4 @@ function mapStateToProps({ athletes }) {
 	return { athletes };
 }
 
-export default connect(mapStateToProps)(ResultsList);
+export default connect(mapStateToProps, { updateCadence })(ResultsList);
