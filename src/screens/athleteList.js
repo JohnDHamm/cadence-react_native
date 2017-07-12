@@ -1,71 +1,26 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Constants } from 'expo';
+import { connect } from 'react-redux';
 import _ from 'lodash';
 
-export default class AthleteList extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			athletes: {
-				1: {
-					name: 'CLARA',
-				},
-				2: {
-					name: 'LUCY',
-				},
-				3: {
-					name: 'MAKENNA',
-				},
-				4: {
-					name: 'MAYA',
-				},
-				5: {
-					name: 'MILES B',
-				},
-				6: {
-					name: 'RUTH',
-				},
-				7: {
-					name: 'TRINITY',
-				},
-				8: {
-					name: 'WELLINGTON',
-				},
-				9: {
-					name: 'WELLINGTO',
-					cadence: 0.59
-				},
-				10: {
-					name: 'WELLINGT',
-					cadence: 0.59
-				},
-				11: {
-					name: 'WELLING',
-					cadence: 0.59
-				},
-				12: {
-					name: 'WELLIN',
-					cadence: 0.59
-				},
-				13: {
-					name: 'WELLI',
-					cadence: 0.59
-				},
-			},
-			numAthletes: 8
-		};
-	}
+import { setCurrentAthlete } from '../actions';
 
-	setCurrentAthlete() {
-		//set state of current athlete
+
+class AthleteList extends React.Component {
+
+	selectAthlete(athlete) {
+		console.log("seletced athlete", athlete);
+		//set state of current athlete + clear cadence value
+		this.props.setCurrentAthlete(athlete);
+
 		this.props.navigation.navigate('Home');
 	}
 
 	renderAthleteList() {
-		return _.map(this.state.athletes, athlete => {
+		return _.map(this.props.athletes, athlete => {
 			return (
-				<TouchableOpacity key={athlete.name} onPress={() => this.setCurrentAthlete(athlete.name)}>
+				<TouchableOpacity key={athlete.name} onPress={() => this.selectAthlete(athlete.name)}>
 					<Text style={styles.athleteText}>{athlete.name}</Text>
 				</TouchableOpacity>
 			);
@@ -76,6 +31,7 @@ export default class AthleteList extends React.Component {
 		//open modal to enter name?
 		//check name duplicate
 		//save new athlete to state
+		//save to AsyncStorage
 	}
 
 	render() {
@@ -131,3 +87,9 @@ const styles = StyleSheet.create({
 		paddingBottom: 12
 	}
 });
+
+function mapStateToProps({ athletes }) {
+	return { athletes };
+}
+
+export default connect(mapStateToProps, { setCurrentAthlete })(AthleteList);

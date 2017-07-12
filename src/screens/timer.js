@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { Constants } from 'expo';
+import { connect } from 'react-redux';
 
 import TapButton from '../components/tapButton';
 
-export default class Timer extends React.Component {
+class Timer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -13,6 +14,13 @@ export default class Timer extends React.Component {
 			latestTap: 0,
 			intervals: []
 		};
+	}
+
+	componentWillMount() {
+		if (!this.props.currentAthlete) {
+			console.log("no current athlete");
+			this.props.navigation.navigate('Athletes');
+		}
 	}
 
 	tap() {
@@ -44,7 +52,8 @@ export default class Timer extends React.Component {
 	}
 
 	render() {
-
+		const currentAthleteName =  this.props.currentAthlete;
+		console.log("currentAthleteName", currentAthleteName);
 		return (
 			<View style={styles.container}>
 				<View style={styles.top}>
@@ -65,7 +74,7 @@ export default class Timer extends React.Component {
 				<View style={styles.tapContainer}>
 					<TouchableOpacity onPress={this.tap.bind(this)}>
 						<TapButton
-							athleteName='MAKENNA'
+							athleteName={currentAthleteName}
 							readout={this.state.readout} />
 					</TouchableOpacity>
 				</View>
@@ -121,3 +130,9 @@ const styles = StyleSheet.create({
 		fontSize: 18
 	}
 });
+
+function mapStateToProps({ currentAthlete }) {
+	return { currentAthlete };
+}
+
+export default connect(mapStateToProps)(Timer);

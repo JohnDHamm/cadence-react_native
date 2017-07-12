@@ -3,10 +3,16 @@ import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Constants } from 'expo';
 
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
+import reducers from './src/reducers';
+
 import Timer from './src/screens/timer';
 import AthleteList from './src/screens/athleteList';
 import ResultsList from './src/screens/resultsList';
 
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 const StackNavigatorConfig = {
 	headerMode: 'none',
@@ -24,7 +30,9 @@ const MainScreenNavigator = StackNavigator({
 export default class App extends React.Component {
 	render() {
 		return (
-			<MainScreenNavigator />
+			<Provider store={createStoreWithMiddleware(reducers)}>
+				<MainScreenNavigator />
+			</Provider>
 		);
 	}
 }
