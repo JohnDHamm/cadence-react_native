@@ -3,7 +3,7 @@ export const SET_CURRENT_ATHLETE = 'set_current_athlete';
 export const UPDATE_CADENCE = 'update_cadence';
 
 export function getAthletes() {
-	return {
+	return { //replace with the AsyncStorage logic
 		type: GET_ATHLETES,
 		payload: {
 				CLARA: {
@@ -23,7 +23,7 @@ export function getAthletes() {
 					cadence: 0.70
 				},
 				MILES_B: {
-					name: 'MILES B',
+					name: 'MILES_B',
 					cadence: 0.81
 				},
 				RUTH: {

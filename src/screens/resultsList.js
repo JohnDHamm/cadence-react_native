@@ -25,9 +25,10 @@ class ResultsList extends React.Component {
 		})
 	}
 
-	clearResults() {
+	clear() {
 		//open modal to confirm?
 		//clear all cadence values in redux store
+
 		//save to AsyncStorage
 	}
 
@@ -53,7 +54,7 @@ class ResultsList extends React.Component {
 					</View>
 
 					<View style={styles.clearResults}>
-						<TouchableOpacity onPress={() => this.clearResults()}>
+						<TouchableOpacity onPress={() => this.clear()}>
 							<Text style={styles.titleText}>clear all</Text>
 						</TouchableOpacity>
 					</View>
