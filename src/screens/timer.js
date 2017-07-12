@@ -55,6 +55,11 @@ class Timer extends React.Component {
 	}
 
 	reset() {
+		const newCadenceObj = {
+			name: this.props.currentAthlete,
+			cadence: 0.00
+		}
+		this.props.updateCadence(newCadenceObj);
 		this.setState({
 			readout: 'tap to start',
 			prevTap: 0,
