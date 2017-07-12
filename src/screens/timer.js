@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { Constants } from 'expo';
+import { connect } from 'react-redux';
 
 import TapButton from '../components/tapButton';
 
-export default class Timer extends React.Component {
+class Timer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -15,7 +16,16 @@ export default class Timer extends React.Component {
 		};
 	}
 
+	componentWillMount() {
+		if (!this.props.currentAthlete) {
+			this.state.readout = 'no athlete selected';
+		}
+	}
+
 	tap() {
+		if (!this.props.currentAthlete) {
+			return;
+		}
 		let thisTap = Date.now();
 
 		if (this.state.prevTap === 0) {
@@ -31,6 +41,8 @@ export default class Timer extends React.Component {
 			let avgSecond = (sum / this.state.intervals.length).toFixed(2);
 			let avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
 			this.setState({readout: `${avgSecond}s / ${avgRPM}rpm`});
+			//save avgSecond to athlete.cadence
+			//save to AsyncStorage
 		}
 	}
 
@@ -44,7 +56,8 @@ export default class Timer extends React.Component {
 	}
 
 	render() {
-
+		const currentAthleteName =  this.props.currentAthlete;
+		console.log("currentAthleteName", currentAthleteName);
 		return (
 			<View style={styles.container}>
 				<View style={styles.top}>
@@ -65,7 +78,7 @@ export default class Timer extends React.Component {
 				<View style={styles.tapContainer}>
 					<TouchableOpacity onPress={this.tap.bind(this)}>
 						<TapButton
-							athleteName='MAKENNA'
+							athleteName={currentAthleteName}
 							readout={this.state.readout} />
 					</TouchableOpacity>
 				</View>
@@ -121,3 +134,9 @@ const styles = StyleSheet.create({
 		fontSize: 18
 	}
 });
+
+function mapStateToProps({ currentAthlete }) {
+	return { currentAthlete };
+}
+
+export default connect(mapStateToProps)(Timer);
