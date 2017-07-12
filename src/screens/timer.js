@@ -18,12 +18,14 @@ class Timer extends React.Component {
 
 	componentWillMount() {
 		if (!this.props.currentAthlete) {
-			console.log("no current athlete");
-			this.props.navigation.navigate('Athletes');
+			this.state.readout = 'no athlete selected';
 		}
 	}
 
 	tap() {
+		if (!this.props.currentAthlete) {
+			return;
+		}
 		let thisTap = Date.now();
 
 		if (this.state.prevTap === 0) {
@@ -39,6 +41,8 @@ class Timer extends React.Component {
 			let avgSecond = (sum / this.state.intervals.length).toFixed(2);
 			let avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
 			this.setState({readout: `${avgSecond}s / ${avgRPM}rpm`});
+			//save avgSecond to athlete.cadence
+			//save to AsyncStorage
 		}
 	}
 
