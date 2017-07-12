@@ -9,7 +9,10 @@ import ResultsList from './screens/resultsList';
 
 
 const StackNavigatorConfig = {
-	headerMode: 'none'
+	headerMode: 'none',
+	cardStyle: {
+		opacity: 1
+	}
 }
 
 const MainScreenNavigator = StackNavigator({

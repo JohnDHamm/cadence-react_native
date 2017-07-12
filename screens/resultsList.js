@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Constants } from 'expo';
 import _ from 'lodash';
 
@@ -22,7 +22,7 @@ export default class ResultsList extends React.Component {
 				},
 				4: {
 					name: 'MAYA',
-					cadence: 0.00
+					cadence: 0.70
 				},
 				5: {
 					name: 'MILES B',
@@ -39,7 +39,27 @@ export default class ResultsList extends React.Component {
 				8: {
 					name: 'WELLINGTON',
 					cadence: 0.59
-				}
+				},
+				9: {
+					name: 'WELLINGTO',
+					cadence: 0.00
+				},
+				10: {
+					name: 'WELLINGT',
+					cadence: 0.00
+				},
+				11: {
+					name: 'WELLING',
+					cadence: 0.00
+				},
+				12: {
+					name: 'WELLIN',
+					cadence: 0.00
+				},
+				13: {
+					name: 'WELLI',
+					cadence: 0.0
+				},
 			},
 			numAthletes: 8
 		};
@@ -72,19 +92,30 @@ export default class ResultsList extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<View style={styles.title}>
-					<Text style={styles.titleText}>results:</Text>
-				</View>
+				<ScrollView>
+					<View style={styles.top}>
+						<TouchableOpacity onPress={() => this.props.navigation.navigate('Athletes')}>
+							<Image
+								style={styles.iconBtn}
+								source={require('../img/ic_group.png')}
+							/>
+						</TouchableOpacity>
+					</View>
 
-				<View style={styles.resultsList}>
-					{this.renderResultsList()}
-				</View>
+					<View style={styles.title}>
+						<Text style={styles.titleText}>results:</Text>
+					</View>
 
-				<View style={styles.clearResults}>
-					<TouchableOpacity onPress={() => this.clearResults()}>
-						<Text style={styles.titleText}>clear all</Text>
-					</TouchableOpacity>
-				</View>
+					<View style={styles.resultsList}>
+						{this.renderResultsList()}
+					</View>
+
+					<View style={styles.clearResults}>
+						<TouchableOpacity onPress={() => this.clearResults()}>
+							<Text style={styles.titleText}>clear all</Text>
+						</TouchableOpacity>
+					</View>
+				</ScrollView>
 			</View>
 		);
 	}
@@ -98,8 +129,18 @@ const styles = StyleSheet.create({
 		paddingLeft: 10,
 		paddingRight: 10,
 	},
+	top: {
+		flexDirection: 'row',
+		justifyContent: 'flex-end',
+		paddingTop: 10,
+		paddingRight: 5,
+	},
+	iconBtn: {
+		width: 50,
+		height: 50
+	},
 	title: {
-		paddingTop: 25
+
 	},
 	titleText: {
 		color: '#888',
@@ -128,6 +169,7 @@ const styles = StyleSheet.create({
 	},
 	clearResults: {
 		paddingTop: 10,
+		paddingBottom: 10,
 		flexDirection: 'row',
 		justifyContent: 'center'
 	}

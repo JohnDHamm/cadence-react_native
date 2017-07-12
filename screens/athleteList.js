@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Constants } from 'expo';
 import _ from 'lodash';
 
@@ -31,7 +31,27 @@ export default class AthleteList extends React.Component {
 				},
 				8: {
 					name: 'WELLINGTON',
-				}
+				},
+				9: {
+					name: 'WELLINGTO',
+					cadence: 0.59
+				},
+				10: {
+					name: 'WELLINGT',
+					cadence: 0.59
+				},
+				11: {
+					name: 'WELLING',
+					cadence: 0.59
+				},
+				12: {
+					name: 'WELLIN',
+					cadence: 0.59
+				},
+				13: {
+					name: 'WELLI',
+					cadence: 0.59
+				},
 			},
 			numAthletes: 8
 		};
@@ -61,19 +81,21 @@ export default class AthleteList extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<View style={styles.title}>
-					<Text style={styles.titleText}>select athlete:</Text>
-				</View>
+				<ScrollView>
+					<View style={styles.title}>
+						<Text style={styles.titleText}>select athlete:</Text>
+					</View>
 
-				<View style={styles.athleteList}>
-					{this.renderAthleteList()}
-				</View>
+					<View style={styles.athleteList}>
+						{this.renderAthleteList()}
+					</View>
 
-				<View style={styles.addAthlete}>
-					<TouchableOpacity onPress={() => this.addAthlete()}>
-						<Text style={styles.titleText}>add new athlete</Text>
-					</TouchableOpacity>
-				</View>
+					<View style={styles.addAthlete}>
+						<TouchableOpacity onPress={() => this.addAthlete()}>
+							<Text style={styles.titleText}>add new athlete</Text>
+						</TouchableOpacity>
+					</View>
+				</ScrollView>
 			</View>
 		);
 	}
@@ -99,6 +121,7 @@ const styles = StyleSheet.create({
 	},
 	addAthlete: {
 		paddingTop: 10,
+		paddingBottom: 10,
 		flexDirection: 'row',
 		justifyContent: 'center'
 	},
