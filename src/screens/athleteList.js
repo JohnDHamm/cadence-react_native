@@ -16,20 +16,12 @@ class AthleteList extends React.Component {
 		}
 	}
 
-	componentWillMount() {
-		console.log("this.state.inputName", this.state.inputName);
-		// this.props.getAthletes();
-	}
-
 	setModalVisible(visible) {
 		this.setState({modalVisible: visible});
 	}
 
-	selectAthlete(athlete) {
-		// console.log("seletced athlete", athlete);
-		//set state of current athlete + clear cadence value
-		this.props.setCurrentAthlete(athlete);
-
+	selectAthlete(athleteName) {
+		this.props.setCurrentAthlete(athleteName);
 		this.props.navigation.navigate('Home');
 	}
 
@@ -77,29 +69,36 @@ class AthleteList extends React.Component {
 				</ScrollView>
 
 				<Modal
+					style={styles.modal}
 					animationType={"slide"}
-					transparent={false}
+					transparent={true}
 					visible={this.state.modalVisible}
-					onRequestClose={ () => {alert("Modal has been closed")}}>
-					<View style={{marginTop: 40}}>
-						<View>
+					onRequestClose={ () => {this.setModalVisible(!this.state.modalVisible)}}>
+					<View style={styles.modalContainer}>
 
+						<View style={styles.modalTitle}>
+							<Text style={styles.modalTitleText}>enter athlete name</Text>
+						</View>
+						<View style={styles.modalInput}>
 							<TextInput
-								style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+								style={styles.modalInputText}
 								onChangeText={(inputName) => this.setState({inputName})}
 								value={this.state.inputName}
 							/>
+						</View>
 
+						<View style={styles.modalBtnGroup}>
 							<TouchableOpacity onPress={ () => {
 								this.setModalVisible(!this.state.modalVisible)
 							}}>
-								<Text style={{paddingTop: 35}}>Cancel</Text>
+								<Text style={styles.cancelBtn}>CANCEL</Text>
 							</TouchableOpacity>
 							<TouchableOpacity onPress={ () => {
 								this.addAthlete()}}>
-								<Text style={{paddingTop: 35}}>Save athlete</Text>
+								<Text style={styles.saveBtn}>SAVE</Text>
 							</TouchableOpacity>
 						</View>
+
 					</View>
 				</Modal>
 
@@ -136,7 +135,60 @@ const styles = StyleSheet.create({
 		color: '#ddd',
 		fontSize: 28,
 		paddingBottom: 12
+	},
+	modal: {
+
+	},
+	modalContainer: {
+		marginTop: (Dimensions.get('window').height - 200) / 2,
+		marginBottom: (Dimensions.get('window').height - 200) / 2,
+		marginRight: 35,
+		marginLeft: 35,
+		flex: 1,
+		flexDirection: 'column',
+		justifyContent: 'space-around',
+		alignItems: 'center',
+		borderRadius: 5,
+		backgroundColor: 'rgba(255,255,255,0.95)'
+	},
+	modalTitle: {
+		flex: 1,
+		justifyContent: 'flex-end',
+	},
+	modalTitleText: {
+		color: '#888',
+		fontSize: 25
+	},
+	modalInput: {
+		flex: 1,
+		width: '80%',
+		justifyContent: 'center'
+	},
+	modalInputText: {
+		height: 45,
+		borderColor: '#888',
+		borderWidth: 1,
+		borderRadius: 2,
+		paddingLeft: 10,
+		fontSize: 25,
+		color: '#444'
+	},
+	modalBtnGroup: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+		alignItems: 'center',
+		width: '80%'
+	},
+	cancelBtn: {
+		fontSize: 20,
+		color: 'gray'
+	},
+	saveBtn: {
+		fontSize: 20,
+		color: 'green'
 	}
+
 });
 
 function mapStateToProps({ athletes }) {
