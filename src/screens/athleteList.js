@@ -1,15 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView, Modal, TextInput } from 'react-native';
 import { Constants } from 'expo';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { getAthletes, setCurrentAthlete } from '../actions';
+import { getAthletes, setCurrentAthlete, saveAthlete } from '../actions';
 
 
 class AthleteList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+			modalVisible: false,
+			inputName: ''
+		}
+	}
+
 	componentWillMount() {
+		console.log("this.state.inputName", this.state.inputName);
 		// this.props.getAthletes();
+	}
+
+	setModalVisible(visible) {
+		this.setState({modalVisible: visible});
 	}
 
 	selectAthlete(athlete) {
@@ -31,9 +44,16 @@ class AthleteList extends React.Component {
 	}
 
 	addAthlete() {
-		//open modal to enter name?
-		//check name duplicate
-		//save new athlete to state
+		let newName = this.state.inputName.toUpperCase();
+		newName = newName.replace(' ', '_');
+		const newAthlete = {
+			name: newName,
+			cadence: 0.00
+		}
+		this.props.saveAthlete(newAthlete);
+
+		this.setModalVisible(!this.state.modalVisible)
+		this.setState({inputName: ''});
 		//save to AsyncStorage
 	}
 
@@ -50,11 +70,39 @@ class AthleteList extends React.Component {
 					</View>
 
 					<View style={styles.addAthlete}>
-						<TouchableOpacity onPress={() => this.addAthlete()}>
+						<TouchableOpacity onPress={() => this.setModalVisible(true)}>
 							<Text style={styles.titleText}>add new athlete</Text>
 						</TouchableOpacity>
 					</View>
 				</ScrollView>
+
+				<Modal
+					animationType={"slide"}
+					transparent={false}
+					visible={this.state.modalVisible}
+					onRequestClose={ () => {alert("Modal has been closed")}}>
+					<View style={{marginTop: 40}}>
+						<View>
+
+							<TextInput
+								style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+								onChangeText={(inputName) => this.setState({inputName})}
+								value={this.state.inputName}
+							/>
+
+							<TouchableOpacity onPress={ () => {
+								this.setModalVisible(!this.state.modalVisible)
+							}}>
+								<Text style={{paddingTop: 35}}>Cancel</Text>
+							</TouchableOpacity>
+							<TouchableOpacity onPress={ () => {
+								this.addAthlete()}}>
+								<Text style={{paddingTop: 35}}>Save athlete</Text>
+							</TouchableOpacity>
+						</View>
+					</View>
+				</Modal>
+
 			</View>
 		);
 	}
@@ -95,4 +143,4 @@ function mapStateToProps({ athletes }) {
 	return { athletes };
 }
 
-export default connect(mapStateToProps, { getAthletes, setCurrentAthlete })(AthleteList);
+export default connect(mapStateToProps, { getAthletes, setCurrentAthlete, saveAthlete })(AthleteList);

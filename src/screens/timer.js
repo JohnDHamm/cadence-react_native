@@ -70,7 +70,7 @@ class Timer extends React.Component {
 
 	render() {
 		const currentAthleteName =  this.props.currentAthlete;
-		console.log("currentAthleteName", currentAthleteName);
+		// console.log("currentAthleteName", currentAthleteName);
 		return (
 			<View style={styles.container}>
 				<View style={styles.top}>
