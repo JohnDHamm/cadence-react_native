@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
 		borderStyle: 'solid',
 		// borderColor: '#e2bb2d',
 		borderColor: '#444',
+		// borderColor: this.props.tapBorderColor,
 		borderWidth: 2,
 		borderRadius: Dimensions.get('window').width * 0.475,
 		justifyContent: 'center',
