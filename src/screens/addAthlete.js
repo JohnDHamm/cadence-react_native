@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { Constants } from 'expo';
 
@@ -21,7 +21,7 @@ class AddAthlete extends React.Component {
 		}
 		this.props.saveAthlete(newAthlete);
 		this.setState({inputName: ''});
-		//save to AsyncStorage
+		AsyncStorage.setItem(`${newName}`, JSON.stringify(newAthlete));
 		this.props.navigation.navigate('Athletes');
 	}
 

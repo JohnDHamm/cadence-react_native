@@ -4,43 +4,27 @@ export const SAVE_ATHLETE = 'save_athlete';
 export const DELETE_ATHLETE = 'delete_athlete';
 export const UPDATE_CADENCE = 'update_cadence';
 
+import { AsyncStorage } from 'react-native';
+
 export function getAthletes() {
-	return { //replace with the AsyncStorage logic
+	let storedKeys = [];
+	const storedAthletes = {};
+	AsyncStorage.getAllKeys()
+		.then((keys) => {
+			storedKeys = keys;
+		})
+		.then(() => {
+			storedKeys.forEach((key) => {
+				AsyncStorage.getItem(key)
+					.then((value) => {
+						storedAthletes[key] = JSON.parse(value);
+					});
+			})
+		});
+
+	return {
 		type: GET_ATHLETES,
-		payload: {
-				CLARA: {
-					name: 'CLARA',
-					cadence: 0.75
-				},
-				LUCY: {
-					name: 'LUCY',
-					cadence: 0.52
-				},
-				MAKENNA: {
-					name: 'MAKENNA',
-					cadence: 0.76
-				},
-				MAYA: {
-					name: 'MAYA',
-					cadence: 0.70
-				},
-				MILES_B: {
-					name: 'MILES_B',
-					cadence: 0.81
-				},
-				RUTH: {
-					name: 'RUTH',
-					cadence: 0.80
-				},
-				TRINITY: {
-					name: 'TRINITY',
-					cadence: 0.00
-				},
-				WELLINGTON: {
-					name: 'WELLINGTON',
-					cadence: 0.59
-				}
-			}
+		payload: storedAthletes
 	}
 }
 
