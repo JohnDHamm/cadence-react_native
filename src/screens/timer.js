@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, AsyncStorage } from 'react-native';
 import { Constants } from 'expo';
 import { connect } from 'react-redux';
 import { getAthletes, updateCadence } from '../actions';
@@ -45,13 +45,13 @@ class Timer extends React.Component {
 			let avgSecond = (sum / this.state.intervals.length).toFixed(2);
 			let avgRPM = Math.floor(60 / (sum / this.state.intervals.length));
 			this.setState({readout: `${avgSecond}s / ${avgRPM}rpm`});
-			//save avgSecond to athlete.cadence
+
 			const newCadenceObj = {
 				name: this.props.currentAthlete,
 				cadence: avgSecond
 			}
 			this.props.updateCadence(newCadenceObj);
-			//save to AsyncStorage
+			AsyncStorage.mergeItem(this.props.currentAthlete, JSON.stringify(newCadenceObj));
 		}
 	}
 
@@ -71,7 +71,6 @@ class Timer extends React.Component {
 
 	render() {
 		const currentAthleteName =  this.props.currentAthlete;
-		// console.log("currentAthleteName", currentAthleteName);
 		return (
 			<View style={styles.container}>
 				<View style={styles.top}>
