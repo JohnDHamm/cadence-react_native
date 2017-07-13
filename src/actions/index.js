@@ -1,6 +1,7 @@
 export const GET_ATHLETES = 'get_athletes';
 export const SET_CURRENT_ATHLETE = 'set_current_athlete';
 export const SAVE_ATHLETE = 'save_athlete';
+export const DELETE_ATHLETE = 'delete_athlete';
 export const UPDATE_CADENCE = 'update_cadence';
 
 export function getAthletes() {
@@ -61,5 +62,12 @@ export function saveAthlete(newAthlete) {
 	return {
 		type: SAVE_ATHLETE,
 		payload: newAthlete
+	}
+}
+
+export function deleteAthlete(athleteId) {
+	return {
+		type: DELETE_ATHLETE,
+		payload: athleteId
 	}
 }

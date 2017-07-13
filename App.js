@@ -10,6 +10,7 @@ import reducers from './src/reducers';
 
 import Timer from './src/screens/timer';
 import AthleteList from './src/screens/athleteList';
+import AddAthlete from './src/screens/addAthlete';
 import ResultsList from './src/screens/resultsList';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -24,6 +25,7 @@ const StackNavigatorConfig = {
 const MainScreenNavigator = StackNavigator({
   Home: { screen: Timer },
   Athletes: { screen: AthleteList },
+  AddAthlete: { screen: AddAthlete },
   Results: { screen: ResultsList },
 }, StackNavigatorConfig );
 

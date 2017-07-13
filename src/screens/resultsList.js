@@ -19,7 +19,7 @@ class ResultsList extends React.Component {
 		return _.map(this.props.athletes, athlete => {
 			const cadenceRPM = Math.floor(60 / athlete.cadence);
 			if (athlete.cadence !== 0) {
-				// this.setState({showClearAll: true});
+				// this.setClearAllTrue();
 				return (
 					<View key={athlete.name} style={styles.athleteBlock}>
 						<View>
@@ -33,6 +33,10 @@ class ResultsList extends React.Component {
 			}
 		})
 	}
+
+	// setClearAllTrue() {
+	// 	this.setState({showClearAll: true});
+	// }
 
 	clear() {
 		//open modal to confirm?

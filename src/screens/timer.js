@@ -14,7 +14,8 @@ class Timer extends React.Component {
 			readout: 'tap to start',
 			prevTap: 0,
 			latestTap: 0,
-			intervals: []
+			intervals: [],
+			tapBtnBorderColor: '#444'
 		};
 	}
 
@@ -92,7 +93,9 @@ class Timer extends React.Component {
 					<TouchableOpacity onPress={this.tap.bind(this)}>
 						<TapButton
 							athleteName={currentAthleteName}
-							readout={this.state.readout} />
+							readout={this.state.readout}
+
+						/>
 					</TouchableOpacity>
 				</View>
 
