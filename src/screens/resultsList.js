@@ -8,11 +8,18 @@ import { updateCadence } from '../actions';
 import _ from 'lodash';
 
 class ResultsList extends React.Component {
+  constructor(props) {
+    super(props);
+	    this.state = {
+			showClearAll: true
+		}
+	}
 
 	renderResultsList() {
 		return _.map(this.props.athletes, athlete => {
 			const cadenceRPM = Math.floor(60 / athlete.cadence);
 			if (athlete.cadence !== 0) {
+				// this.setState({showClearAll: true});
 				return (
 					<View key={athlete.name} style={styles.athleteBlock}>
 						<View>
@@ -36,9 +43,21 @@ class ResultsList extends React.Component {
 				cadence: 0.00
 			}
 			this.props.updateCadence(newClearedObj)
+				this.setState({showClearAll: false});
 		})
 		//save to AsyncStorage
 	}
+
+	renderClearAll() {
+		if (this.state.showClearAll) {
+			return (
+				<TouchableOpacity onPress={() => this.clear()}>
+					<Text style={styles.titleText}>clear all</Text>
+				</TouchableOpacity>
+			)
+		}
+	}
+
 
 	render() {
 		return (
@@ -62,9 +81,7 @@ class ResultsList extends React.Component {
 					</View>
 
 					<View style={styles.clearResults}>
-						<TouchableOpacity onPress={() => this.clear()}>
-							<Text style={styles.titleText}>clear all</Text>
-						</TouchableOpacity>
+						{this.renderClearAll()}
 					</View>
 				</ScrollView>
 			</View>
