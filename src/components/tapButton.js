@@ -2,7 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 export default class TapButton extends React.Component {
+
 	render() {
+
 		return (
 			<View style={styles.tapBtn}>
 				<Text style={styles.athleteName}>{this.props.athleteName}</Text>
@@ -19,9 +21,7 @@ const styles = StyleSheet.create({
 		height: Dimensions.get('window').width * 0.95,
 		backgroundColor: '#000',
 		borderStyle: 'solid',
-		// borderColor: '#e2bb2d',
 		borderColor: '#444',
-		// borderColor: this.props.tapBorderColor,
 		borderWidth: 2,
 		borderRadius: Dimensions.get('window').width * 0.475,
 		justifyContent: 'center',

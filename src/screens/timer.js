@@ -15,7 +15,6 @@ class Timer extends React.Component {
 			prevTap: 0,
 			latestTap: 0,
 			intervals: [],
-			tapBtnBorderColor: '#444'
 		};
 	}
 
@@ -56,17 +55,19 @@ class Timer extends React.Component {
 	}
 
 	reset() {
-		const newCadenceObj = {
-			name: this.props.currentAthlete,
-			cadence: 0.00
+		if (this.props.currentAthlete) {
+			const newCadenceObj = {
+				name: this.props.currentAthlete,
+				cadence: 0.00
+			}
+			this.props.updateCadence(newCadenceObj);
+			this.setState({
+				readout: 'tap to start',
+				prevTap: 0,
+				latestTap: 0,
+				intervals: []
+			});
 		}
-		this.props.updateCadence(newCadenceObj);
-		this.setState({
-			readout: 'tap to start',
-			prevTap: 0,
-			latestTap: 0,
-			intervals: []
-		});
 	}
 
 	render() {

@@ -13,6 +13,10 @@ class AddAthlete extends React.Component {
 	}
 
 	addAthlete() {
+		if (this.state.inputName === '') {
+			alert("please enter a name");
+			return
+		}
 		let newName = this.state.inputName.toUpperCase();
 		newName = newName.replace(' ', '_');
 		const newAthlete = {
