@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Modal, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Modal, Dimensions, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { Constants } from 'expo';
 import _ from 'lodash';
@@ -29,6 +29,7 @@ class AthleteList extends React.Component {
 		console.log("athlete to delete", this.state.athleteToDelete);
 		this.setModalVisible(false);
 		this.props.deleteAthlete(this.state.athleteToDelete);
+		AsyncStorage.removeItem(this.state.athleteToDelete);
 	}
 
 	renderAthleteList() {
