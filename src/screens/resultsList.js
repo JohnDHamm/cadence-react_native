@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { Constants } from 'expo';
 import { connect } from 'react-redux';
 
 import { updateCadence } from '../actions';
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#00002F',
-		paddingTop: Constants.statusBarHeight,
+		paddingTop: 25,
 		paddingLeft: 10,
 		paddingRight: 10,
 	},

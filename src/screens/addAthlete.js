@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
-import { Constants } from 'expo';
 
-import { saveAthlete } from '../actions';
+import { saveAthlete, getAthletes } from '../actions';
 
 
 class AddAthlete extends React.Component {
@@ -25,8 +24,9 @@ class AddAthlete extends React.Component {
 		}
 		this.props.saveAthlete(newAthlete);
 		this.setState({inputName: ''});
-		AsyncStorage.setItem(`${newName}`, JSON.stringify(newAthlete));
-		this.props.navigation.navigate('Athletes');
+		AsyncStorage.setItem(`${newName}`, JSON.stringify(newAthlete))
+			.then(() => this.props.navigation.navigate('Athletes'));
+
 	}
 
 	render() {
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#fff',
-		paddingTop: Constants.statusBarHeight,
+		paddingTop: 25,
 		paddingLeft: 25,
 		paddingRight: 25
 	},
@@ -107,4 +107,4 @@ function mapStateToProps({ athletes }) {
 	return { athletes };
 }
 
-export default connect(mapStateToProps, { saveAthlete })(AddAthlete);
+export default connect(mapStateToProps, { saveAthlete, getAthletes })(AddAthlete);

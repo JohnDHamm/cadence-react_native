@@ -11,7 +11,7 @@ export function getAthletes() {
 	const storedAthletes = {};
 	AsyncStorage.getAllKeys()
 		.then((keys) => {
-			storedKeys = keys;
+			storedKeys = keys.sort();
 		})
 		.then(() => {
 			storedKeys.forEach((key) => {
