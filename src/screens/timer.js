@@ -1,9 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, AsyncStorage } from 'react-native';
-import { Constants } from 'expo';
 import { connect } from 'react-redux';
 import { getAthletes, updateCadence } from '../actions';
-
 
 import TapButton from '../components/tapButton';
 

@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Modal, Dimensions, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
-import { Constants } from 'expo';
 import _ from 'lodash';
 
-import { getAthletes, setCurrentAthlete, deleteAthlete } from '../actions';
+import { setCurrentAthlete, deleteAthlete } from '../actions';
 
 
 class AthleteList extends React.Component {
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#2F0000',
-		paddingTop: Constants.statusBarHeight
+		paddingTop: 25
 	},
 	title: {
 		paddingLeft: 25,
@@ -168,6 +167,4 @@ function mapStateToProps({ athletes }) {
 	return { athletes };
 }
 
-export default connect(mapStateToProps, { getAthletes, setCurrentAthlete, deleteAthlete })(AthleteList);
-
-
+export default connect(mapStateToProps, { setCurrentAthlete, deleteAthlete })(AthleteList);

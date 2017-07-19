@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { Constants } from 'expo';
 import { connect } from 'react-redux';
 
 import { updateCadence } from '../actions';
@@ -19,7 +18,6 @@ class ResultsList extends React.Component {
 		return _.map(this.props.athletes, athlete => {
 			const cadenceRPM = Math.floor(60 / athlete.cadence);
 			if (athlete.cadence !== 0) {
-				// this.setClearAllTrue();
 				return (
 					<View key={athlete.name} style={styles.athleteBlock}>
 						<View>
@@ -34,13 +32,7 @@ class ResultsList extends React.Component {
 		})
 	}
 
-	// setClearAllTrue() {
-	// 	this.setState({showClearAll: true});
-	// }
-
 	clear() {
-		//open modal to confirm?
-		//clear all cadence values in redux store
 		_.map(this.props.athletes, athlete => {
 			const newClearedObj = {
 				name: athlete.name,
@@ -49,7 +41,6 @@ class ResultsList extends React.Component {
 			this.props.updateCadence(newClearedObj)
 				this.setState({showClearAll: false});
 		})
-		//save to AsyncStorage
 	}
 
 	renderClearAll() {
@@ -61,7 +52,6 @@ class ResultsList extends React.Component {
 			)
 		}
 	}
-
 
 	render() {
 		return (
@@ -97,7 +87,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#00002F',
-		paddingTop: Constants.statusBarHeight,
+		paddingTop: 25,
 		paddingLeft: 10,
 		paddingRight: 10,
 	},
