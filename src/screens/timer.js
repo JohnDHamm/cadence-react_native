@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, AsyncStora
 import { connect } from 'react-redux';
 import { getAthletes, updateCadence } from '../actions';
 
-
 import TapButton from '../components/tapButton';
 
 class Timer extends React.Component {

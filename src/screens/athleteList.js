@@ -168,5 +168,3 @@ function mapStateToProps({ athletes }) {
 }
 
 export default connect(mapStateToProps, { setCurrentAthlete, deleteAthlete })(AthleteList);
-
-
