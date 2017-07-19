@@ -39,15 +39,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/johnhamm/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_bf0945a832002e1f2b14abd3b4cba54ab8db361a.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/johnhamm/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
         jumboMode="false"
         optimize="true"
@@ -66,6 +57,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_8281a80cb3c167b972369e16202fa95d0e159384.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -75,12 +75,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/jars/libs/infer-annotations-4.0.jar"
+        jar="/Users/johnhamm/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_8281a80cb3c167b972369e16202fa95d0e159384.jar" />
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_1cb393fd33b0f508c29c4850d7efd9fd5cb4f5a7.jar" />
     </item>
     <item
         is-multidex="false"
@@ -93,12 +93,39 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/johnhamm/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jar="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_1cb393fd33b0f508c29c4850d7efd9fd5cb4f5a7.jar" />
+        sha1="0d3e48e200296061415952a358fad487e129adaa">
+        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.45.1_a8b2ce4b00a7beaa67a381da755acee3765d6600.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_4eb427e2036066af8c57bd65446e23c34f505ceb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/johnhamm/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_54f7e9060a5842b9089b1ba73316b60e224e2b4a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/johnhamm/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_bf0945a832002e1f2b14abd3b4cba54ab8db361a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -129,30 +156,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="0d3e48e200296061415952a358fad487e129adaa">
-        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.45.1_a8b2ce4b00a7beaa67a381da755acee3765d6600.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="8f615bca00639150c9eb6175d4b5471193f70794">
         <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_3db024f534e41bfb63e596340ec81ec7c9ca8b63.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
-        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_4eb427e2036066af8c57bd65446e23c34f505ceb.jar" />
     </item>
     <item
         is-multidex="false"
@@ -189,15 +198,6 @@
         revision="23.0.1"
         sha1="cf836a435a496eb22ff2aa69aa1e619462549f81">
         <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.0.1_58043d24869a0159597a6d1370d378afad551c58.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/johnhamm/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
-        <dex dex="/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_54f7e9060a5842b9089b1ba73316b60e224e2b4a.jar" />
     </item>
 
 </items>
