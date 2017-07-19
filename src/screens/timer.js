@@ -9,7 +9,7 @@ class Timer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			readout: 'tap to start',
+			readout: 'start tapping',
 			prevTap: 0,
 			latestTap: 0,
 			intervals: [],
