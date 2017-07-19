@@ -40,6 +40,10 @@
         "source": "/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_dialog_material_background_light.xml"
     },
     {
+        "merged": "/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/res/merged/debug/drawable/background_splash.xml",
+        "source": "/Users/johnhamm/Documents/projects/cadence-react_native/android/app/src/main/res/drawable/background_splash.xml"
+    },
+    {
         "merged": "/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
         "source": "/Users/johnhamm/Documents/projects/cadence-react_native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
