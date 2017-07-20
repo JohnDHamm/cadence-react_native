@@ -1,8 +1,7 @@
 {
-	"expo": {
-		"sdkVersion": "18.0.0",
-		"slug": "cadence-coach",
-	},
-	"name": "cadence-react_native",
-	"displayName": "Cadence Coach"
+  "expo": {
+    "sdkVersion": "18.0.0"
+  },
+  "name": "cadenceCoach",
+  "displayName": "Cadence Coach"
 }
