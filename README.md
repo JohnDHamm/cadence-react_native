@@ -1,6 +1,6 @@
 # Cadence Coach
 
-#### *Cadence measurement with a tap of a finger!*
+### *Cadence measurement with a tap of a finger!*
 
 ##### _Technologies:_
 * React Native
@@ -15,5 +15,4 @@ Simple, easy tool for coaches of swimming, cycling, or running to measure their 
 * There is a reset button below the tapping area if you need to start over with an athlete while tapping their cadence
 
 ##### _Available on:_
-[Google Play](https://play.google.com/store/apps/details?id=com.cadencecoach)
-[iTunes App Store](https://itunes.apple.com/us/app/cadence-coach/id1262128524?mt=8)
+[Google Play](https://play.google.com/store/apps/details?id=com.cadencecoach) and [iTunes App Store](https://itunes.apple.com/us/app/cadence-coach/id1262128524?mt=8)
