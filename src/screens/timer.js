@@ -60,7 +60,7 @@ class Timer extends React.Component {
 			}
 			this.props.updateCadence(newCadenceObj);
 			this.setState({
-				readout: 'tap to start',
+				readout: 'start tapping',
 				prevTap: 0,
 				latestTap: 0,
 				intervals: []
