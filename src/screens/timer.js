@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, AsyncStorage, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { getAthletes, updateCadence } from '../actions';
 
@@ -60,7 +60,7 @@ class Timer extends React.Component {
 			}
 			this.props.updateCadence(newCadenceObj);
 			this.setState({
-				readout: 'tap to start',
+				readout: 'start tapping',
 				prevTap: 0,
 				latestTap: 0,
 				intervals: []
@@ -72,6 +72,10 @@ class Timer extends React.Component {
 		const currentAthleteName =  this.props.currentAthlete;
 		return (
 			<View style={styles.container}>
+				<StatusBar
+					 backgroundColor="#222"
+					 barStyle="light-content"
+				 />
 				<View style={styles.top}>
 					<TouchableOpacity onPress={() => this.props.navigation.navigate('Athletes')}>
 						<Image

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Modal, Dimensions, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Modal, Dimensions, AsyncStorage, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
@@ -51,6 +51,10 @@ class AthleteList extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
+				<StatusBar
+					 backgroundColor="#2F0000"
+					 barStyle="light-content"
+				 />
 				<ScrollView>
 					<View style={styles.title}>
 						<Text style={styles.titleText}>select athlete:</Text>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, AsyncStorage, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 
 import { saveAthlete, getAthletes } from '../actions';
@@ -32,6 +32,10 @@ class AddAthlete extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
+				<StatusBar
+					 backgroundColor="#FFF"
+					 barStyle="dark-content"
+				 />
 				<View style={styles.title}>
 					<Text style={styles.titleText}>enter new name:</Text>
 				</View>
