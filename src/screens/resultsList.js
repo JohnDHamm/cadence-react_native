@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 
 import { updateCadence } from '../actions';
@@ -56,6 +56,10 @@ class ResultsList extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
+				<StatusBar
+					 backgroundColor="#00002F"
+					 barStyle="light-content"
+				 />
 				<ScrollView>
 					<View style={styles.top}>
 						<TouchableOpacity onPress={() => this.props.navigation.navigate('Athletes')}>
