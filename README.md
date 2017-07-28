@@ -1,4 +1,4 @@
-# Cadence Coach
+# ![alt text](https://github.com/JohnDHamm/cadence-react_native/raw/master/AERO_icon-github.png "AERO Timer") Cadence Coach
 
 ### *Cadence measurement with a tap of a finger!*
 
